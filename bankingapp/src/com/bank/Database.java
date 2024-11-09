@@ -7,7 +7,7 @@ public class Database {
 		
 		public Database() {
 			try {
-				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bank","root","ThrnHas@2005");
+				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bank","root","password");
 			}catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -15,7 +15,7 @@ public class Database {
 		public void insertAccount(Account account) {
 			String sql = "insert into accounts (customer_id,name,phone_number,account_type,address,balance)"
 					+ "values(?,?,?,?,?,?)" ;
-			try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bank","root","ThrnHas@2005");
+			try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bank","root","password");
 					PreparedStatement psmt = conn.prepareStatement(sql))
 					{
 						psmt.setInt(1, account.getCustomerId());
